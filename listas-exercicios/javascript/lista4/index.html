@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lista 04</title>
+  </head>
+  <body>
+
+    <p style="display: block;">
+      JavaScript é uma linguagem de programação interpretada. Foi originalmente implementada como parte dos navegadores web para que scripts pudessem ser executados do lado do cliente e interagissem com ...
+    </p>
+
+    <button type="button" name="button" onclick="hideShowP()">Ocultar/Mostrar</button>
+
+    <script type="text/javascript">
+
+        function hideShowP() {
+          var p = document.querySelector('p');
+          p.style.display = (p.style.display == 'block' ? 'none' : 'block');
+        }
+
+    </script>
+  </body>
+</html>

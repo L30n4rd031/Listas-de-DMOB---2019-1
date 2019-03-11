@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lista 10</title>
+  </head>
+  <body>
+
+    <h3>Números</h3>
+
+    <form class="" action="index.html" method="post">
+      <label>Num 01:</label>
+      <input type="text" name="num1" placeholder="Num 1">
+      <br/><br/>
+      <label>Num 02:</label>
+      <input type="text" name="num2" placeholder="Num 2">
+      <br/><br/>
+      <label>Num 03:</label>
+      <input type="text" name="num3" placeholder="Num 3">
+      <br/><br/>
+      <label>Resultado:</label>
+      <input type="text" name="result" disabled>
+      <br/><br/>
+
+      <button type="button" name="calc">Calcular</button>
+    </form>
+
+    <script type="text/javascript">
+
+        document.querySelector('button[name=calc]').addEventListener("click", function() {
+          var num1 = document.querySelector('input[name=num1]').value;
+          var num2 = document.querySelector('input[name=num2]').value;
+          var num3 = document.querySelector('input[name=num3]').value;
+
+          if (!!num1 && !!num2 && !!num3) {
+            calcNumbers(num1, num2, num3);
+          } else {
+            alert("Preencha todo os campos");
+          }
+
+        });
+
+        function calcNumbers(num1, num2, num3) {
+
+          var result = parseInt(num1) + parseInt(num2) + parseInt(num3);
+
+          document.querySelector('input[name=result]').value = result;
+        }
+
+    </script>
+  </body>
+</html>

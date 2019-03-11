@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lista 07</title>
+  </head>
+  <body>
+
+    <p>Inverter Nomes</p>
+
+    <form>
+      <input type="text" name="name1" placeholder="Nome 1">
+      <input type="text" name="name2" placeholder="Nome 2">
+      <input type="text" name="name3" placeholder="Nome 3">
+      <input type="text" name="name4" placeholder="Nome 4">
+      <input type="text" name="name5" placeholder="Nome 5">
+
+      <button type="button" name="button" onclick="invertName()">Inverter</button>
+    </form>
+
+    <script type="text/javascript">
+
+        function invertName() {
+
+          var inputs = document.getElementsByTagName('input');
+          var names = [];
+
+          for (var i = 0; i < inputs.length; i++) {
+
+             var name = document.querySelector(`input[name=name${(i+1)}]`);
+             names.push(name.value);
+
+          }
+
+          for (var i = 0; i < names.length; i++) {
+
+            var name = names[i];
+
+            var splitName = name.split(""); // Transforma a var word em um array
+            var reverseName = splitName.reverse(); // Inverte a ordem do array
+            var newName = reverseName.join(""); // Junta todos os indices do array em uma string
+
+            document.querySelector(`input[name=name${(i+1)}]`).value = newName;
+
+          }
+
+        }
+
+    </script>
+  </body>
+</html>

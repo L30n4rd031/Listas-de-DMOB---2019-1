@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lista 09</title>
+  </head>
+  <body>
+
+    <h3>Palavras Intercaladas</h3>
+
+      <label>Palavra 01:</label>
+      <input type="text" name="word1" placeholder="Palavra 1">
+      <br/><br/>
+      <label>Palavra 02:</label>
+      <input type="text" name="word2" placeholder="Palavra 2">
+      <br/><br/>
+      <label>Resultado:</label>
+      <input type="text" name="result" disabled>
+      <br/><br/>
+
+      <button type="button" name="intercalated">Intercalar</button>
+
+    <script type="text/javascript">
+
+        document.querySelector('button[name=intercalated]').addEventListener("click", function() {
+          var word1 = document.querySelector('input[name=word1]').value;
+          var word2 = document.querySelector('input[name=word2]').value;
+
+          if ((!!word1 && word1.length > 2) && (!!word2 && word2.length > 2)) {
+            intercalatedWords(word1, word2);
+          } else {
+            alert("Palavras devem possuir tamanho acima de 2 caracteres");
+          }
+
+        });
+
+        function intercalatedWords(word1, word2) {
+
+          var name = [];
+
+          if (word1.length > 0) {
+            name.push(word1[0]);
+          }
+
+          if (word2.length > 0) {
+            name.push(word2[0]);
+          }
+
+
+          for (var i = 0, length = word1.length; i < length; i++) {
+             if (i != 0 && i != (length - 1)) {
+                name.push(word1[i]);
+             }
+          }
+
+          for (var i = 0, length = word2.length; i < length; i++) {
+             if (i != 0 && i != (length - 1)) {
+                name.push(word2[i]);
+             }
+          }
+
+          if (word1.length > 0) {
+            name.push(word1[word1.length - 1]);
+          }
+
+          if (word2.length > 0) {
+            name.push(word2[word2.length - 1]);
+          }
+
+          var newName = name.join(""); // Junta todos os indices do array em uma string
+
+          document.querySelector('input[name=result]').value = newName;
+        }
+
+    </script>
+  </body>
+</html>

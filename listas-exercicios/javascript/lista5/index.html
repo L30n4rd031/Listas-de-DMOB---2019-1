@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lista 05</title>
+  </head>
+  <body>
+
+    <p>Cadastrar Usuário</p>
+
+    <form onsubmit="return validForm()" action="index.html" method="post">
+      <input type="text" name="username" placeholder="Usuário">
+      <input type="password" name="password" placeholder="Senha">
+      <input type="password" name="confirmation_password" placeholder="Confirmar Senha">
+      <button type="submit" name="button">Cadastrar</button>
+    </form>
+
+    <script type="text/javascript">
+
+        function validForm() {
+          var username = document.querySelector('input[name=username]').value;
+          var password = document.querySelector('input[name=password]').value;
+          var confirmation_password = document.querySelector('input[name=confirmation_password]').value;
+
+          if (!!username && !!password && !!confirmation_password){
+            if (password.length >= 6 && password.length <= 10) {
+              if (password === confirmation_password) {
+                   return true;
+              } else {
+                alert('Senhas não coincidem!');
+              }
+
+            } else {
+              alert('Senha deve possuir entre 6 e 10 caracteres!');
+            }
+
+          } else {
+            alert('Preencha todos os campos!');
+          }
+
+          return false;
+        }
+
+    </script>
+  </body>
+</html>

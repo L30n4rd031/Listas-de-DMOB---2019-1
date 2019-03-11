@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lista 08</title>
+  </head>
+  <body>
+
+    <h3>Formulário de Cadastro</h3>
+
+    <form>
+      <label>Nome:</label>
+      <input type="text" name="name" placeholder="Nome">
+      <br/><br/>
+      <label>Pessoa:</label>
+      <br/>Física: <input type="radio" name="people" onclick="disabledInputs()" value="fisica">
+      <br/>Jurídica: <input type="radio" name="people" onclick="disabledInputs()" value="juridica">
+      <br/><br/>
+      <label>CPF:</label>
+      <input type="text" name="cpf" placeholder="CPF" disabled>
+      <br/><br/>
+      <label>CNPJ:</label>
+      <input type="text" name="cnpj" placeholder="CNPJ" disabled>
+      <br/><br/>
+      <label>Data de Nascimento:</label>
+      <input type="text" name="date_birth" onkeypress="return onlyNumbers(event)" disabled>
+      <br/><br/>
+      <label>Endereço:</label>
+      <input type="text" name="address" placeholder="Endereço">
+      <br/><br/>
+      <label>CEP:</label>
+      <input type="text" name="cep" onkeypress="return onlyNumbers(event)" placeholder="CEP">
+      <br/><br/>
+      <label>Telefone:</label>
+      <input type="text" name="phone" placeholder="Telefone">
+      <br/><br/>
+      <label>E-mail:</label>
+      <input type="email" name="email" placeholder="E-mail">
+      <br/><br/>
+      <button type="button" name="button">Cadastrar</button>
+    </form>
+
+    <script type="text/javascript">
+
+        function disabledInputs() {
+          var people = document.querySelector('input[name=people]:checked').value;
+
+          var cpf = document.querySelector('input[name=cpf]');
+          var cnpj = document.querySelector('input[name=cnpj]');
+          var date_birth = document.querySelector('input[name=date_birth]');
+
+          if (people == "fisica") {
+              cpf.disabled = false;
+              date_birth.disabled = false;
+              cnpj.disabled = true;
+          } else {
+              cnpj.disabled = false;
+              cpf.disabled = true;
+              date_birth.disabled = true;
+          }
+
+        }
+
+        function onlyNumbers(e) {
+           var key = e.charCode;
+
+           if((key >= 48 && key <= 57)) {
+              return true;
+           } else {
+             return false;
+           }
+
+        }
+
+    </script>
+  </body>
+</html>

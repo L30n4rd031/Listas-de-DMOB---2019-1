@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Lista 06</title>
+  </head>
+  <body>
+
+    <p>Identificar palíndromo</p>
+
+    <input type="text" name="word" placeholder="Palavra">
+    <button type="button" name="button" onclick="validPalindrome()">Verificar Palavra</button>
+
+    <script type="text/javascript">
+
+        function validPalindrome() {
+          var word = document.querySelector('input[name=word]').value;
+
+          var splitWord = word.split(""); // Transforma a var word em um array
+          var reverseWord = splitWord.reverse(); // Inverte a ordem do array
+          var palindrome = reverseWord.join(""); // Junta todos os indices do array em uma string
+
+          if (word != null && word != "" && !!word.replace(/^\s+|\s+$/g,"")) {
+            if (word == palindrome) {
+              alert(`Palavra ${word} é um palíndromo`);
+            } else {
+              alert(`Palavra ${word} não é um palíndromo`);
+            }
+          } else {
+            alert(`Insira uma palavra`);
+          }
+
+        }
+
+    </script>
+  </body>
+</html>
